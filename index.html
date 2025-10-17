@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoteWorkTools - Productivity Solutions for Digital Nomads</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .affiliate-btn {
+            background-color: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .affiliate-btn:hover {
+            background-color: #e61a7a;
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .rating {
+            color: #ffc107;
+        }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .testimonial {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        
+        .search-result-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .tool-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+        }
+        
+        .comparison-table table {
+            min-width: 800px;
+        }
+        
+        .table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .badge-featured {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-laptop-house me-2"></i>RemoteWorkTools</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Boost Your Remote Work Productivity</h1>
+                    <p class="lead mb-4">Discover the best tools and software to maximize efficiency while working from anywhere in the world.</p>
+                    <div class="search-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Search for productivity tools...">
+                            <button class="btn btn-light" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://picsum.photos/seed/remotework/600/400.jpg" alt="Remote Work" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tools Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Tools</h2>
+            <div class="row" id="featuredTools">
+                <!-- Tools will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Browse by Category</h2>
+            
+            <!-- Project Management -->
+            <div class="tool-category">
+                <h3 class="category-title">Project Management</h3>
+                <div class="row" id="projectManagementTools">
+                    <!-- Tools will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Communication -->
+            <div class="tool-category">
+                <h3 class="category-title">Communication</h3>
+                <div class="row" id="communicationTools">
+                    <!-- Tools will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Time Tracking -->
+            <div class="tool-category">
+                <h3 class="category-title">Time Tracking</h3>
+                <div class="row" id="timeTrackingTools">
+                    <!-- Tools will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="reviews" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Tool Comparison</h2>
+            <div class="comparison-table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Rating</th>
+                            <th>Best For</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody">
+                        <!-- Table rows will be dynamically loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Remote Workers Say</h2>
+            <div class="row" id="testimonials">
+                <!-- Testimonials will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Stay Updated with the Latest Tools</h2>
+                    <p class="mb-4">Get our weekly newsletter with the latest productivity tools and exclusive deals.</p>
+                    <form id="newsletterForm" class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-light btn-lg w-100">Subscribe</button>
+                        </div>
+                    </form>
+                    <div id="newsletterMessage" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Articles</h2>
+            <div class="row" id="blogPosts">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>RemoteWorkTools</h5>
+                    <p>Your trusted source for productivity tools and software recommendations for remote work.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Categories</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Reviews</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Project Management</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Communication</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Time Tracking</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Note Taking</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contact</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-envelope me-2"></i> info@remoteworktools.com<br>
+                        <i class="fas fa-phone me-2"></i> +1 (555) 123-4567
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4 bg-white-50">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-white-50">&copy; 2023 RemoteWorkTools. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tool Detail Modal -->
+    <div class="modal fade" id="toolModal" tabindex="-1" aria-labelledby="toolModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="toolModalLabel">Tool Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="toolModalBody">
+                    <!-- Tool details will be dynamically loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn affiliate-btn" id="modalAffiliateBtn">Get This Tool</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Tools data with affiliate links
+        const toolsData = {
+            featured: [
+                {
+                    id: 1,
+                    name: "Notion",
+                    category: "Note Taking",
+                    price: "Free / $8/user/month",
+                    rating: 4.8,
+                    image: "https://picsum.photos/seed/notion/400/300.jpg",
+                    description: "All-in-one workspace for notes, tasks, wikis, and databases.",
+                    affiliateLink: "https://affiliate.notion.com/your-id",
+                    featured: true
+                },
+                {
+                    id: 2,
+                    name: "Trello",
+                    category: "Project Management",
+                    price: "Free / $5/user/month",
+                    rating: 4.5,
+                    image: "https://picsum.photos/seed/trello/400/300.jpg",
+                    description: "Visual collaboration tool that creates a shared perspective on any project.",
+                    affiliateLink: "https://affiliate.trello.com/your-id",
+                    featured: true
+                },
+                {
+                    id: 3,
+                    name: "Slack",
+                    category: "Communication",
+                    price: "Free / $6.67/user/month",
+                    rating: 4.6,
+                    image: "https://picsum.photos/seed/slack/400/300.jpg",
+                    description: "Business communication platform for teams with channels, messaging, and integration.",
+                    affiliateLink: "https://affiliate.slack.com/your-id",
+                    featured: true
+                }
+            ],
+            projectManagement: [
+                {
+                    id: 4,
+                    name: "Asana",
+                    price: "Free / $10.99/user/month",
+                    rating: 4.5,
+                    image: "https://picsum.photos/seed/asana/400/300.jpg",
+                    description: "Work management platform that helps teams orchestrate their work.",
+                    affiliateLink: "https://affiliate.asana.com/your-id"
+                },
+                {
+                    id: 5,
+                    name: "Monday.com",
+                    price: "Free / $8/user/month",
+                    rating: 4.4,
+                    image: "https://picsum.photos/seed/monday/400/300.jpg",
+                    description: "Work OS that powers teams to run processes, projects and workflows.",
+                    affiliateLink: "https://affiliate.monday.com/your-id"
+                },
+                {
+                    id: 6,
+                    name: "ClickUp",
+                    price: "Free / $5/user/month",
+                    rating: 4.7,
+                    image: "https://picsum.photos/seed/clickup/400/300.jpg",
+                    description: "Productivity platform that brings all your work into one place.",
+                    affiliateLink: "https://affiliate.clickup.com/your-id"
+                }
+            ],
+            communication: [
+                {
+                    id: 7,
+                    name: "Zoom",
+                    price: "Free / $14.99/host/month",
+                    rating: 4.6,
+                    image: "https://picsum.photos/seed/zoom/400/300.jpg",
+                    description: "Video conferencing and web conferencing service.",
+                    affiliateLink: "https://affiliate.zoom.com/your-id"
+                },
+                {
+                    id: 8,
+                    name: "Microsoft Teams",
+                    price: "Free / $5/user/month",
+                    rating: 4.3,
+                    image: "https://picsum.photos/seed/teams/400/300.jpg",
+                    description: "Unified communication and collaboration platform.",
+                    affiliateLink: "https://affiliate.microsoft.com/your-id"
+                },
+                {
+                    id: 9,
+                    name: "Discord",
+                    price: "Free / $9.99/month",
+                    rating: 4.4,
+                    image: "https://picsum.photos/seed/discord/400/300.jpg",
+                    description: "Voice, video, and text communication platform.",
+                    affiliateLink: "https://affiliate.discord.com/your-id"
+                }
+            ],
+            timeTracking: [
+                {
+                    id: 10,
+                    name: "Toggl Track",
+                    price: "Free / $10/user/month",
+                    rating: 4.5,
+                    image: "https://picsum.photos/seed/toggl/400/300.jpg",
+                    description: "Time tracking software designed for freelancers and teams.",
+                    affiliateLink: "https://affiliate.toggl.com/your-id"
+                },
+                {
+                    id: 11,
+                    name: "RescueTime",
+                    price: "Free / $12/month",
+                    rating: 4.2,
+                    image: "https://picsum.photos/seed/rescuetime/400/300.jpg",
+                    description: "Automatic time tracking software that helps you understand your daily habits.",
+                    affiliateLink: "https://affiliate.rescuetime.com/your-id"
+                },
+                {
+                    id: 12,
+                    name: "Clockify",
+                    price: "Free / $6.99/user/month",
+                    rating: 4.4,
+                    image: "https://picsum.photos/seed/clockify/400/300.jpg",
+                    description: "Time tracker and timesheet app that lets you track work hours.",
+                    affiliateLink: "https://affiliate.clockify.com/your-id"
+                }
+            ]
+        };
+
+        // Blog posts data
+        const blogPosts = [
+            {
+                id: 1,
+                title: "Top 10 Productivity Tools for Remote Teams in 2023",
+                excerpt: "Discover the best tools that can help your remote team stay productive and connected.",
+                image: "https://picsum.photos/seed/blog1/400/250.jpg",
+                date: "June 15, 2023",
+                author: "Alex Johnson"
+            },
+            {
+                id: 2,
+                title: "How to Build a Remote Work Culture That Thrives",
+                excerpt: "Learn the key strategies for creating a strong company culture in a distributed team.",
+                image: "https://picsum.photos/seed/blog2/400/250.jpg",
+                date: "June 10, 2023",
+                author: "Sarah Williams"
+            },
+            {
+                id: 3,
+                title: "Time Management Techniques for Digital Nomads",
+                excerpt: "Master these proven techniques to make the most of your time while working remotely.",
+                image: "https://picsum.photos/seed/blog3/400/250.jpg",
+                date: "June 5, 2023",
+                author: "Michael Chen"
+            }
+        ];
+
+        // Testimonials data
+        const testimonials = [
+            {
+                id: 1,
+                name: "Jessica Martinez",
+                role: "Freelance Designer",
+                content: "RemoteWorkTools helped me find the perfect project management software. My productivity has increased by 40%!",
+                avatar: "https://picsum.photos/seed/avatar1/100/100.jpg"
+            },
+            {
+                id: 2,
+                name: "David Thompson",
+                role: "Startup Founder",
+                content: "The detailed reviews and comparisons saved me hours of research. I found exactly what my team needed.",
+                avatar: "https://picsum.photos/seed/avatar2/100/100.jpg"
+            },
+            {
+                id: 3,
+                name: "Emily Rodriguez",
+                role: "Digital Nomad",
+                content: "As someone who works from different countries, having the right tools is crucial. This site has been invaluable.",
+                avatar: "https://picsum.photos/seed/avatar3/100/100.jpg"
+            }
+        ];
+
+        // Function to render featured tools
+        function renderFeaturedTools() {
+            const container = document.getElementById('featuredTools');
+            container.innerHTML = '';
+            
+            toolsData.featured.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'col-md-4 mb-4';
+                toolCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${tool.image}" class="card-img-top" alt="${tool.name}">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title">${tool.name}</h5>
+                                ${tool.featured ? '<span class="badge-featured">Featured</span>' : ''}
+                            </div>
+                            <p class="card-text">${tool.description}</p>
+                            <div class="rating mb-2">
+                                ${generateStars(tool.rating)}
+                                <span class="text-muted">(${tool.rating})</span>
+                            </div>
+                            <div class="price-tag mb-3">${tool.price}</div>
+                            <div class="mt-auto">
+                                <button class="btn affiliate-btn w-100" onclick="window.open('${tool.affiliateLink}', '_blank')">Get This Tool</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(toolCard);
+            });
+        }
+
+        // Function to render tools by category
+        function renderToolsByCategory() {
+            // Project Management Tools
+            const pmContainer = document.getElementById('projectManagementTools');
+            pmContainer.innerHTML = '';
+            
+            toolsData.projectManagement.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'col-md-4 mb-4';
+                toolCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${tool.image}" class="card-img-top" alt="${tool.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${tool.name}</h5>
+                            <p class="card-text">${tool.description}</p>
+                            <div class="rating mb-2">
+                                ${generateStars(tool.rating)}
+                                <span class="text-muted">(${tool.rating})</span>
+                            </div>
+                            <div class="price-tag mb-3">${tool.price}</div>
+                            <div class="mt-auto">
+                                <button class="btn affiliate-btn w-100" onclick="window.open('${tool.affiliateLink}', '_blank')">Get This Tool</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                pmContainer.appendChild(toolCard);
+            });
+            
+            // Communication Tools
+            const commContainer = document.getElementById('communicationTools');
+            commContainer.innerHTML = '';
+            
+            toolsData.communication.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'col-md-4 mb-4';
+                toolCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${tool.image}" class="card-img-top" alt="${tool.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${tool.name}</h5>
+                            <p class="card-text">${tool.description}</p>
+                            <div class="rating mb-2">
+                                ${generateStars(tool.rating)}
+                                <span class="text-muted">(${tool.rating})</span>
+                            </div>
+                            <div class="price-tag mb-3">${tool.price}</div>
+                            <div class="mt-auto">
+                                <button class="btn affiliate-btn w-100" onclick="window.open('${tool.affiliateLink}', '_blank')">Get This Tool</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                commContainer.appendChild(toolCard);
+            });
+            
+            // Time Tracking Tools
+            const ttContainer = document.getElementById('timeTrackingTools');
+            ttContainer.innerHTML = '';
+            
+            toolsData.timeTracking.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'col-md-4 mb-4';
+                toolCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${tool.image}" class="card-img-top" alt="${tool.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${tool.name}</h5>
+                            <p class="card-text">${tool.description}</p>
+                            <div class="rating mb-2">
+                                ${generateStars(tool.rating)}
+                                <span class="text-muted">(${tool.rating})</span>
+                            </div>
+                            <div class="price-tag mb-3">${tool.price}</div>
+                            <div class="mt-auto">
+                                <button class="btn affiliate-btn w-100" onclick="window.open('${tool.affiliateLink}', '_blank')">Get This Tool</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                ttContainer.appendChild(toolCard);
+            });
+        }
+
+        // Function to render comparison table
+        function renderComparisonTable() {
+            const tableBody = document.getElementById('comparisonTableBody');
+            tableBody.innerHTML = '';
+            
+            // Combine all tools
+            const allTools = [
+                ...toolsData.featured,
+                ...toolsData.projectManagement,
+                ...toolsData.communication,
+                ...toolsData.timeTracking
+            ];
+            
+            // Sort by rating
+            allTools.sort((a, b) => b.rating - a.rating);
+            
+            // Take top 6 for comparison
+            const topTools = allTools.slice(0, 6);
+            
+            topTools.forEach(tool => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${tool.name}</strong></td>
+                    <td>${tool.category}</td>
+                    <td>${tool.price}</td>
+                    <td>${generateStars(tool.rating)} ${tool.rating}</td>
+                    <td>${getBestFor(tool)}</td>
+                    <td><button class="btn affiliate-btn btn-sm" onclick="window.open('${tool.affiliateLink}', '_blank')">Get This Tool</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to render testimonials
+        function renderTestimonials() {
+            const container = document.getElementById('testimonials');
+            container.innerHTML = '';
+            
+            testimonials.forEach(testimonial => {
+                const testimonialCard = document.createElement('div');
+                testimonialCard.className = 'col-md-4 mb-4';
+                testimonialCard.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="${testimonial.avatar}" alt="${testimonial.name}" class="rounded-circle me-3" width="50" height="50">
+                                <div>
+                                    <h6 class="mb-0">${testimonial.name}</h6>
+                                    <small class="text-muted">${testimonial.role}</small>
+                                </div>
+                            </div>
+                            <p class="card-text">"${testimonial.content}"</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(testimonialCard);
+            });
+        }
+
+        // Function to render blog posts
+        function renderBlogPosts() {
+            const container = document.getElementById('blogPosts');
+            container.innerHTML = '';
+            
+            blogPosts.forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.className = 'col-md-4 mb-4';
+                postCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${post.image}" class="card-img-top" alt="${post.title}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${post.title}</h5>
+                            <p class="card-text">${post.excerpt}</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">${post.date}</small>
+                                    <small class="text-muted">By ${post.author}</small>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-3">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(postCard);
+            });
+        }
+
+        // Helper function to generate star rating HTML
+        function generateStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Helper function to determine "best for" based on tool category
+        function getBestFor(tool) {
+            const bestForMap = {
+                "Note Taking": "Content creators",
+                "Project Management": "Team collaboration",
+                "Communication": "Remote teams",
+                "Time Tracking": "Freelancers"
+            };
+            
+            return bestForMap[tool.category] || "General use";
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            // Combine all tools for search
+            const allTools = [
+                ...toolsData.featured,
+                ...toolsData.projectManagement,
+                ...toolsData.communication,
+                ...toolsData.timeTracking
+            ];
+            
+            // Filter tools based on search term
+            const filteredTools = allTools.filter(tool => 
+                tool.name.toLowerCase().includes(searchTerm) || 
+                tool.description.toLowerCase().includes(searchTerm) ||
+                tool.category.toLowerCase().includes(searchTerm)
+            );
+            
+            // Clear previous results
+            searchResults.innerHTML = '';
+            
+            if (filteredTools.length === 0) {
+                searchResults.innerHTML = '<div class="search-result-item">No tools found</div>';
+            } else {
+                filteredTools.forEach(tool => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>${tool.name}</strong>
+                                <div class="text-muted small">${tool.category} - ${tool.price}</div>
+                            </div>
+                            <button class="btn affiliate-btn btn-sm" onclick="window.open('${tool.affiliateLink}', '_blank')">Get Tool</button>
+                        </div>
+                    `;
+                    searchResults.appendChild(resultItem);
+                });
+            }
+            
+            searchResults.style.display = 'block';
+        });
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', function(e) {
+            const searchContainer = document.querySelector('.search-container');
+            if (!searchContainer.contains(e.target)) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            const messageDiv = document.getElementById('newsletterMessage');
+            
+            // Simulate form submission
+            messageDiv.innerHTML = '<div class="alert alert-success">Thank you for subscribing! Check your email for confirmation.</div>';
+            
+            // Reset form
+            e.target.reset();
+            
+            // In a real implementation, you would send this data to your backend
+            console.log('Newsletter subscription:', email);
+            
+            // Store email in localStorage for demo purposes
+            const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+            subscribers.push({ email, date: new Date().toISOString() });
+            localStorage.setItem('subscribers', JSON.stringify(subscribers));
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFeaturedTools();
+            renderToolsByCategory();
+            renderComparisonTable();
+            renderTestimonials();
+            renderBlogPosts();
+        });
+    </script>
+</body>
+</html>
